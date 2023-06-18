@@ -23,7 +23,7 @@ namespace SimpleApp
         {
 
 
-
+            //to select the product name and price after selecting id from the dropdownlist
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\products.mdf;Integrated Security=True");
             con.Open();
             SqlCommand cmd = new SqlCommand("Select * from product where pid=@pid", con);
@@ -42,6 +42,7 @@ namespace SimpleApp
 
         protected void Button2_Click(object sender, EventArgs e)
         {
+            //to edit the details of the product
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\products.mdf;Integrated Security=True");
             con.Open();
             string pid = DropDownList1.SelectedItem.ToString();
@@ -60,6 +61,7 @@ namespace SimpleApp
 
         protected void Button3_Click(object sender, EventArgs e)
         {
+            //to delete the product from the table
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\products.mdf;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("delete from product where pid='" + DropDownList1.SelectedItem.Text + "'", conn);
             conn.Open();
@@ -90,6 +92,7 @@ namespace SimpleApp
 
         protected void Button5_Click1(object sender, EventArgs e)
         {
+            //to add items in the database
             SqlCommand cmd;
             SqlConnection con;
 
@@ -114,6 +117,7 @@ namespace SimpleApp
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //to select the pid about which details to be dislayed
             GridView1.DataBind();
         }
     }
